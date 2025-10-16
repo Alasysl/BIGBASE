@@ -24,7 +24,7 @@ body{
 .app{
   display:flex;
   align-items:flex-start;
-  gap:40px;
+  gap:60px;
   max-width:1150px;
 }
 
@@ -177,7 +177,23 @@ button:hover{ background:#a47d5f; }
 .birk-img{
   width:110px; height:auto; image-rendering:pixelated;
 }
-
+.middle-img{
+  position:absolute;
+  left:260px;      /* 讓它出現在企鵝右邊，可依實際調整距離 */
+  bottom:25px;     /* 與綿羊對齊底部 */
+  width:50px;     /* 圖片大小，可改成 100~140 看合適 */
+  height:auto;
+  image-rendering:pixelated;
+}
+.YetiandPepe-img{
+  position:absolute;
+  left:160px;       /* 調整與企鵝的距離，可微調 140~180 */
+  bottom:25px;      /* 與綿羊底部對齊 */
+  width:100px;      /* 可視比例調整大小 */
+  height:auto;
+  image-rendering:pixelated;
+  pointer-events:none;  /* 避免擋到點擊 */
+}
 /* 📣 截圖完成提示（右下角浮出） */
 #toast{
   position:fixed; right:22px; bottom:22px; z-index:9999;
@@ -251,7 +267,10 @@ button:hover{ background:#a47d5f; }
 
       <div class="meta">
         <div class="author">製作者：金黃艾拉企鵝</div>
-        <img class="author-img" src="https://i.ibb.co/mrL4RZQD/2025-10-15-230345.png" alt="作者圖片"/>
+        <img class="author-img" src="https://i.ibb.co/mrL4RZQD/2025-10-15-230345.png" alt="金黃艾拉企鵝"/>
+        <img class="middle-img" src="https://i.imgur.com/jd6W78f.png" alt="小企鵝"/>
+		<img class="YetiandPepe-img" src="https://i.meee.com.tw/PYVZpHI.gif" alt="雪吉拉戰車"/>
+
 
         <!-- ✅ 新增：右側幸運數字 + Birk GIF（貼齊左圖底部） -->
         <div class="birk-zone">
