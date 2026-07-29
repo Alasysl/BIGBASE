@@ -52,7 +52,7 @@ body{
   display:flex; align-items:center; justify-content:space-between;
 }
 
-/* 📸 截圖按鈕（你原有的） */
+/* 📸 截圖按鈕 */
 #captureBtn{
   background:#6b513c; color:#fff; border:none;
   padding:6px 10px; border-radius:6px;
@@ -81,22 +81,12 @@ button:hover{ background:#a47d5f; }
   color:#ffd99a; opacity:.9;
 }
 
-/* 規則段落與間距（照你之前） */
+/* 規則段落與間距 */
 #settings .rules { margin-top:0; padding-top:0; }
 #settings .rules h3{ margin-top:6px; margin-bottom:6px; }
 #settings .rules p{ font-size:14px; color:#fff; margin:4px 0 10px; }
 #settings hr{ border:1px dashed #7a5d43; opacity:.8; margin:6px 0; }
 #settings .rules h3:first-child{ margin-top:0; }
-
-/* 滾動陰影 */
-#settings::before, #settings::after{
-  content:""; position:absolute; left:0; right:0; height:14px;
-  pointer-events:none; opacity:0; transition:opacity .18s ease;
-}
-#settings::before{ top:0; background:linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,0)); }
-#settings::after { bottom:0; background:linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0)); }
-#settings.shadow-top::before{ opacity:1; }
-#settings.shadow-bottom::after{ opacity:1; }
 
 /* =========================================================
    🎯 賓果盤區域
@@ -163,7 +153,7 @@ button:hover{ background:#a47d5f; }
 /* 右側：幸運數字 + 綿羊 GIF（與左圖底部貼齊） */
 .birk-zone{
   position:absolute;
-  right:10px;         /* ⬅ 調整距離左側，讓綿羊靠近企鵝 */
+  right:10px;         /* ⬅ 調整距離左側 */
   bottom:25px;            /* GIF高度調整 */
   display:flex;
   flex-direction:column;
@@ -177,22 +167,19 @@ button:hover{ background:#a47d5f; }
 .birk-img{
   width:110px; height:auto; image-rendering:pixelated;
 }
-.middle-img{
-  position:absolute;
-  left:260px;      /* 讓它出現在企鵝右邊，可依實際調整距離 */
-  bottom:25px;     /* 與綿羊對齊底部 */
-  width:50px;     /* 圖片大小，可改成 100~140 看合適 */
-  height:auto;
-  image-rendering:pixelated;
+.coin-img{
+    width:28px;
+    height:28px;
+    vertical-align:middle;
+    margin-left:4px;
 }
-.YetiandPepe-img{
-  position:absolute;
-  left:160px;       /* 調整與企鵝的距離，可微調 140~180 */
-  bottom:25px;      /* 與綿羊底部對齊 */
-  width:100px;      /* 可視比例調整大小 */
-  height:auto;
-  image-rendering:pixelated;
-  pointer-events:none;  /* 避免擋到點擊 */
+.Raid-Pass-img{
+    width:18px !important;
+    height:18px !important;
+    object-fit:contain;
+    vertical-align:middle;
+    margin-left:3px;
+    display:inline-block;
 }
 /* 📣 截圖完成提示（右下角浮出） */
 #toast{
@@ -204,6 +191,19 @@ button:hover{ background:#a47d5f; }
 }
 #toast.show{ opacity:1; transform:translateY(0); }
 </style>
+
+<style id="meta-override">
+.meta{margin-top:18px!important}
+.meta-row{display:flex;justify-content:space-between;align-items:flex-end}
+.author-block{display:flex;flex-direction:column}
+.author{font-size:14px;color:#ffd99a;margin-bottom:8px}
+.author-img{width:220px!important;height:auto!important;object-fit:contain}
+.birk-zone{display:flex;flex-direction:column;align-items:center;gap:8px;position:static!important}
+.birk-img{width:180px!important;height:auto!important}
+.coin-img,.coin-icon{width:26px;height:26px;vertical-align:middle}
+.Raid-Pass-img,.Raid-Pass-icon{width:26px!important;height:26px!important;object-fit:contain;vertical-align:middle}
+</style>
+
 </head>
 <body>
 <div class="page">
@@ -211,7 +211,7 @@ button:hover{ background:#a47d5f; }
     <!-- 左：設定欄 -->
     <aside id="settings">
       <h2>
-        設定
+        BigBase
         <button id="captureBtn">📸 截圖</button>
       </h2>
 
@@ -228,29 +228,34 @@ button:hover{ background:#a47d5f; }
       <hr>
 
       <div class="rules">
-        <h3 style="color:#ffd966; font-size:20px;">💰 主要獎勵</h3>
-        <p>🏆 第一位完成五條線 → <b>150 雪花 ❄️</b><br>
-           🥈 第二位完成五條線 → <b>100 雪花 ❄️</b><br>
-           🥉 第三位完成五條線 → <b>75 雪花 ❄️</b><br>
-           🌟 第四位完成五條線 → <b>50 雪花 ❄️</b></p>
-
+        <h3 style="color:#ffd966; font-size:22px;">💰 主要獎勵</h3>
+        <p>
+		🏆 第一位完成五條線 → <b>21張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🥈 第二位完成五條線 → <b>14張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🥉 第三位完成五條線 → <b>14張突襲卷️<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🌟 第四位完成五條線 → <b>7張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+		🌟 第五位完成五條線 → <b>7張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🌟 第六位完成五條線 → <b>3張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🌟 第七位完成五條線 → <b>3張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🌟 第八位完成五條線 → <b>3張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🌟 第九位完成五條線 → <b>3張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        🌟 第十位完成五條線 → <b>3張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br><br>
+        參加獎 → 1張突襲卷<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        參加獎抽獎 → 7張突襲卷 / 2位 ( 會跳前五名 )<img class="Raid-Pass-img" src="https://i.ibb.co/przG7R8f/2026-07-29-212533-removebg-preview.png" alt="突襲卷"></b><br>
+        優勝者獲得 → 特殊身分組稱號</b><br>
+        本次突襲由 書記 和 耶使矮度 贊助!</b><br>
+        </p>
         <hr>
 
-        <h3 style="color:#ffd966; font-size:20px;">🌟 額外線獎（前三條線限定）</h3>
-        <p>⚡ 第一、第二、第三條線出現時，凡該回合中「最先喊出 Bingo！」者，均可獲得 <b>5 雪花 ❄️</b>。<br><br>
-           ⚡ 若同時多人喊出，該條線所有人皆得獎。<br><br>
-           ⚡ 每條線獎勵僅發一次，第4條以後不再發放。<br><br>
-           ⚡ 以遊戲或 Discord 語音喊聲時間為準。</p>
-
-        <hr>
-
-        <h3 style="color:#ffd966; font-size:20px;">✨ 黃金數字獎勵</h3>
+        <h3 style="color:#ffd966; font-size:22px;">✨ 黃金數字獎勵</h3>
         <p>（比賽前公開抽出，全員共用）<br><br>
-           中 1 個 → <b>5 雪花 ❄️</b><br>
-           中 2 個 → <b>10 雪花 ❄️</b><br>
-           中 3 個 → <b>15 雪花 ❄️</b><br>
-           中 4 個 → <b>20 雪花 ❄️</b><br>
-           中 5 個 → <b>50 雪花 ❄️</b></p>
+           中 1 個 → <b>5個沉重的金錢袋 <img class="coin-img" src="https://www.artalemaplestory.com/images/useable/mesos-pouch/heavy-mesos-pouch.webp" alt="錢袋"></b><br>
+           中 2 個 → <b>10個沉重的金錢袋<img class="coin-img" src="https://www.artalemaplestory.com/images/useable/mesos-pouch/heavy-mesos-pouch.webp" alt="錢袋"></b><br>
+           中 3 個 → <b>20個沉重的金錢袋<img class="coin-img" src="https://www.artalemaplestory.com/images/useable/mesos-pouch/heavy-mesos-pouch.webp" alt="錢袋"></b><br>
+           中 4 個 → <b>25個沉重的金錢袋<img class="coin-img" src="https://www.artalemaplestory.com/images/useable/mesos-pouch/heavy-mesos-pouch.webp" alt="錢袋"></b><br>
+		   範例: Xu 中了4個黃金數字,那他最後可獲得25個沉重的金錢袋<img class="coin-img" src="https://www.artalemaplestory.com/images/useable/mesos-pouch/heavy-mesos-pouch.webp" alt="錢袋"></b><br>
+		   感謝 天青 和 天元 贊助!!</b><br>
+		</p>
       </div>
     </aside>
 
@@ -266,19 +271,18 @@ button:hover{ background:#a47d5f; }
       <div id="bingo-board"></div>
 
       <div class="meta">
-        <div class="author">製作者：金黃艾拉企鵝</div>
-        <img class="author-img" src="https://i.ibb.co/mrL4RZQD/2025-10-15-230345.png" alt="金黃艾拉企鵝"/>
-        <img class="middle-img" src="https://i.imgur.com/jd6W78f.png" alt="小企鵝"/>
-		<img class="YetiandPepe-img" src="https://i.meee.com.tw/PYVZpHI.gif" alt="雪吉拉戰車"/>
-
-
-        <!-- ✅ 新增：右側幸運數字 + Birk GIF（貼齊左圖底部） -->
-        <div class="birk-zone">
-          <div class="lucky-text" id="luckyNum">今日幸運數字：--</div>
-          <img class="birk-img" src="https://www.artalemaplestory.com/images/monsters/birk.gif" alt="Birk">
-        </div>
-      </div>
-    </main>
+<div class="meta-row">
+<div class="author-block">
+<div class="author">製作者：艾拉企鵝王</div>
+<img class="author-img" src="https://i.ibb.co/V0gC6v3S/2026-07-29-205306.png" alt="艾拉企鵝王">
+</div>
+<div class="birk-zone">
+<div class="lucky-text" id="luckyNum">今日幸運數字：--</div>
+<img class="birk-img" src="https://i.ibb.co/PZ5dbt7R/1785329867685.gif" alt="皮包">
+</div>
+</div>
+</div>
+</main>
   </div>
 </div>
 
@@ -344,7 +348,7 @@ generateRandomBingo();
 (function(){
   const s=document.getElementById('settings');
   const r=document.querySelector('.board-wrap');
-  function setH(){ const h=Math.ceil(r.getBoundingClientRect().height); s.style.maxHeight=(h-12)+'px'; updateShadow(); }
+  function setH(){ const h=Math.ceil(r.getBoundingClientRect().height); s.style.maxHeight=(h-12)+'px'; }
   window.addEventListener('load',setH);
   window.addEventListener('resize',setH);
   function updateShadow(){
@@ -353,7 +357,6 @@ generateRandomBingo();
     s.classList.toggle('shadow-top',!atTop);
     s.classList.toggle('shadow-bottom',!atBottom);
   }
-  s.addEventListener('scroll',updateShadow);
   setH();
 })();
 
